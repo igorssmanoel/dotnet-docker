@@ -1,4 +1,4 @@
-version: "3"
+version: "3.4"
 
 services:
   teste:
@@ -6,6 +6,12 @@ services:
     build:
       context: .
     ports:
-      - "80:5000"
-    environment: 
+      - "80:80"
+      - "443:443"
+    environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=teste
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    volumes:
+      - ~/.aspnet/https:/https:ro
