@@ -45,7 +45,7 @@ namespace teste
                                  "WebApp1 v1"));
             }
 
-            app.UseHttpsRedirection();
+            /* app.UseHttpsRedirection(); */
 
             app.UseRouting();
 
